@@ -1,0 +1,44 @@
+﻿<Window x:Class="AntiFormTrainer.UI.InformationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AntiFormTrainer.UI"
+        mc:Ignorable="d"
+        Title="NotificationWindow" Height="250" Width="500" WindowStyle="None" 
+        AllowsTransparency="True" Background="Transparent" MouseLeftButtonDown="Window_MouseLeftButtonDown" Loaded="Window_Loaded">
+    <Canvas>
+        <Path Data="M15 0 H485 L500 15 V235 L485 250 L15 250 L0 235 L0 15 Z" Stroke="White" StrokeThickness="0.5" RenderTransformOrigin="0.5, 0.5">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+                    <GradientStop Color="#1f0000" Offset="0" />
+                    <GradientStop Color="#3d0000" Offset="0.7"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+            <Path.RenderTransform>
+                <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+            </Path.RenderTransform>
+        </Path>
+        <Grid Margin="40,20" Width="420">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" Grid.Row="0" VerticalAlignment="Center">
+                <Border x:Name="circularBorder" CornerRadius="10" Width="20" Background="#590001" Height="20">
+                    <TextBlock Text="!" FontFamily="{StaticResource KH2ITEM}" Foreground="White" FontSize="18" Margin="8,0"/>
+                </Border>
+                <Label Content="INFORMATION" FontFamily="{StaticResource KH2ITEM}" Foreground="#fd0000" FontSize="20"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="1">
+                <TextBlock x:Name="BlockMessage" FontFamily="{StaticResource KH2ITEM}" Foreground="White" FontSize="20" TextWrapping="Wrap">
+                
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="2">
+                <local:KHButton Style="{StaticResource KHButtonNotificationStyle}" Content="OK" Width="150" FontSize="18" Opacity="0.9" Click="KHButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Canvas>
+</Window>

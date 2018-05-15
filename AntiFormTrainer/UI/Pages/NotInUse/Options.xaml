@@ -1,0 +1,39 @@
+﻿<Page x:Class="AntiFormTrainer.UI.Options"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:main="clr-namespace:AntiFormTrainer"
+      xmlns:local="clr-namespace:AntiFormTrainer.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="Options">
+    <Page.Resources>
+        <main:InverseBooleanConverter x:Key="Inverse"/>
+    </Page.Resources>
+    <Grid>
+        <StackPanel Name="Container_All" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Margin="0,10,0,0" BorderBrush="Black" BorderThickness="3" Background="Black" CornerRadius="5" Name="Container_OptionsBorder" Width="600">
+                <StackPanel HorizontalAlignment="Center" Name="Container_Options">
+                    <StackPanel Orientation="Horizontal" Name="Container_SingleOption" Margin="0,10">
+                        <Grid Width="160" Height="30">
+                            <Path Data="M0 0 L10 0 L12 5 L10 10 L0 10 Z" Fill="#020051" Stretch="Fill"/>
+                            <TextBlock Text="Enable Donald" Foreground="White" FontFamily="{StaticResource KH2ITEM}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Margin="-10,0,0,0"/>
+                        </Grid>
+                        <local:KHButton x:Name="btnEnableDonald" Margin="2,0" Width="160" Height="30" Style="{StaticResource KHButtonItemOption}" Content="ON" FontSize="20" Description="Enable Donald." Click="btnEnableDonald_Click" IsSelected="{Binding Source={x:Static main:Communicator.Instance}, Path=UseDonald, Mode=TwoWay}"/>
+                        <local:KHButton x:Name="btnDisableDonald" Margin="2,0" Width="160" Height="30" Style="{StaticResource KHButtonItemOption}" Content="OFF" FontSize="20" Description="Disable Donald." Click="btnDisableDonald_Click" IsSelected="{Binding Source={x:Static main:Communicator.Instance}, Path=UseDonald, Mode=TwoWay, Converter={StaticResource Inverse}}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,10">
+                        <Grid Width="160" Height="30">
+                            <Path Data="M0 0 L10 0 L12 5 L10 10 L0 10 Z" Fill="#020051" Stretch="Fill"/>
+                            <TextBlock Text="Enable Goofy" Foreground="White" FontFamily="{StaticResource KH2ITEM}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Margin="-10,0,0,0"/>
+                        </Grid>
+                        <local:KHButton x:Name="btnEnableGoofy" Margin="2,0" Width="160" Height="30" Style="{StaticResource KHButtonItemOption}" Content="ON" FontSize="20" Description="Enable Goofy." Click="btnEnableGoofy_Click" IsSelected="{Binding Source={x:Static main:Communicator.Instance}, Path=UseGoofy, Mode=TwoWay}"/>
+                        <local:KHButton x:Name="btnDisableGoofy" Margin="2,0" Width="160" Height="30" Style="{StaticResource KHButtonItemOption}" Content="OFF" FontSize="20" Description="Disable Goofy." Click="btnDisableGoofy_Click" IsSelected="{Binding Source={x:Static main:Communicator.Instance}, Path=UseGoofy, Mode=TwoWay, Converter={StaticResource Inverse}}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <local:KHButton x:Name="btnBack" Margin="10,50" Content="Go back" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Style="{StaticResource KHButtonMainMenuStyle}" FontSize="20" Height="32" Description="Go to the main menu." Click="btnBack_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

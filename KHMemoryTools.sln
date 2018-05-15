@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHMemory", "MemoryScan\KHMemory.csproj", "{FDDE04EC-1DB9-438F-891F-0862241EE4FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHMovesetScanner", "KHMovesetScanner\KHMovesetScanner.csproj", "{50AA4223-1B2A-42C3-9E4E-270C0BC24722}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHTriggerRunner", "KHTriggerRunner\KHTriggerRunner.csproj", "{3673B3A6-DB02-42FF-8A8A-F0CF162F979C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntiFormTrainer", "AntiFormTrainer\AntiFormTrainer.csproj", "{FBB150AB-32F6-4661-A679-161C556EA1E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDDE04EC-1DB9-438F-891F-0862241EE4FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDDE04EC-1DB9-438F-891F-0862241EE4FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDDE04EC-1DB9-438F-891F-0862241EE4FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDDE04EC-1DB9-438F-891F-0862241EE4FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50AA4223-1B2A-42C3-9E4E-270C0BC24722}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50AA4223-1B2A-42C3-9E4E-270C0BC24722}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50AA4223-1B2A-42C3-9E4E-270C0BC24722}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50AA4223-1B2A-42C3-9E4E-270C0BC24722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3673B3A6-DB02-42FF-8A8A-F0CF162F979C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3673B3A6-DB02-42FF-8A8A-F0CF162F979C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3673B3A6-DB02-42FF-8A8A-F0CF162F979C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3673B3A6-DB02-42FF-8A8A-F0CF162F979C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBB150AB-32F6-4661-A679-161C556EA1E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBB150AB-32F6-4661-A679-161C556EA1E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBB150AB-32F6-4661-A679-161C556EA1E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBB150AB-32F6-4661-A679-161C556EA1E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F11EF32F-052C-413C-9ACF-EAB324B1DACD}
+	EndGlobalSection
+EndGlobal

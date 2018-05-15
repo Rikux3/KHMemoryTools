@@ -1,0 +1,35 @@
+﻿<Page x:Class="AntiFormTrainer.UI.Pages.Credits"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AntiFormTrainer.UI"
+      mc:Ignorable="d" 
+      Width="690" Height="325"
+      Title="Credits">
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="MainBlock" Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                        <SplineThicknessKeyFrame KeyTime="00:00:00" Value="5,325,5,0" />
+                        <SplineThicknessKeyFrame KeyTime="00:00:22" Value="5,-325,5,0" />
+                    </ThicknessAnimationUsingKeyFrames>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Page.Triggers>
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="MainBlock" FontFamily="{StaticResource KH2ITEM}" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" FontSize="20" Margin="5,0,5,0">
+            Thanks to following people:<LineBreak/><LineBreak/>
+            Topaz' Reality: Source of inspiration, also answered me a lot of questions, provided the fonts and main program icon<LineBreak/><LineBreak/>
+            SoraikoSan: This project is partly using Teamod Source Code, also used his tools to create the moveset<LineBreak/><LineBreak/>
+            Xaggdx Absol Brasse: Source of inspiration, also helped with RAM-related questions<LineBreak/><LineBreak/>
+            Kyosuke: Name for the mod<LineBreak/><LineBreak/>
+            Probably anyone i forgot: thank you for being there :)
+            </TextBlock>
+            <local:KHButton x:Name="btnGoBack" Content="Go back." HorizontalAlignment="Left" Margin="20,250,0,0" VerticalAlignment="Top" Width="200" Style="{StaticResource KHButtonMainMenuStyle}" FontSize="20" Height="32" Description="Go back." Click="btnGoBack_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

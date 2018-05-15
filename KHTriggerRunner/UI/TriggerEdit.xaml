@@ -1,0 +1,150 @@
+﻿<Window x:Class="KHTriggerRunner.TriggerEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KHTriggerRunner"
+        mc:Ignorable="d"
+        Title="TriggerEdit" Height="490" Width="585" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Height="417">
+                <GroupBox x:Name="groupBoxTrigger" Header="Trigger Information" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="197" Width="292">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="World" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"/>
+                            <ComboBox x:Name="comboWorld" Height="22" IsReadOnly="True" Margin="17,10,0,0" Width="180" SelectionChanged="comboWorld_SelectionChanged"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Room" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"/>
+                            <ComboBox x:Name="comboRoom" Height="22" Margin="18,10,0,0" Width="180" SelectionChanged="comboRoom_SelectionChanged"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Margin="0,15,0,0" x:Name="chkEnableEvent" Content="Event" Checked="chkEnableEvent_Checked" Unchecked="chkEnableEvent_Unchecked"/>
+                            <ComboBox x:Name="comboEvent" Height="22" Margin="15,10,0,0" Width="180" IsEnabled="False">
+                                <!--<ComboBox.Style>
+                            <Style TargetType="ComboBox">
+                                <Setter Property="IsEnabled" Value="False"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=chkEnableEvent, Path=IsChecked}" Value="True">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ComboBox.Style>-->
+                            </ComboBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <GroupBox Header="Options">
+                                <StackPanel Orientation="Vertical">
+                                    <CheckBox x:Name="chkStopAfterLoad" Content="Stop Execution after Map and Char loaded" Margin="10,10,0,0"/>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="chkWorldWarp" Content="World Warp" Margin="30,10,0,0" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Codes" Margin="10,10,0,30" Width="250">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <DataGrid Margin="10,10,0,0" AutoGenerateColumns="False"  HorizontalAlignment="Left" VerticalAlignment="Top" x:Name="gridCodes" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" Height="170" Width="168" SelectionChanged="gridCodes_SelectionChanged">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Address" MinWidth="75" Binding="{Binding Address, StringFormat=\{0:x8\}}" IsReadOnly="True"/>
+                                        <DataGridTextColumn Header="Value" MinWidth="75" Binding="{Binding Value, StringFormat=\{0:x8\}}" IsReadOnly="True"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Bottom">
+                                <Button x:Name="btnImportCode" Width="24" Height="24" Margin="10,10,0,0" Click="btnImportCode_Click" >
+                                    <Button.ToolTip>
+                                        <TextBlock Text="Add code lines from text file"/>
+                                    </Button.ToolTip>
+                                    <Viewbox Margin="-5" Width="24" Height="24">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M9,13A3,3 0 0,0 12,16A3,3 0 0,0 15,13A3,3 0 0,0 12,10A3,3 0 0,0 9,13M20,19.59V8L14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18C18.45,22 18.85,21.85 19.19,21.6L14.76,17.17C13.96,17.69 13,18 12,18A5,5 0 0,1 7,13A5,5 0 0,1 12,8A5,5 0 0,1 17,13C17,14 16.69,14.96 16.17,15.75L20,19.59Z" Fill="Black" />
+                                        </Canvas>
+                                    </Viewbox>
+                                </Button>
+                                <Button x:Name="btnEditCode" Width="24" Height="24" Margin="10,10,0,0" IsEnabled="False">
+                                    <Viewbox Margin="-1" Width="20" Height="20">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" Fill="Black" />
+                                        </Canvas>
+                                    </Viewbox>
+                                </Button>
+                                <Button x:Name="btnRemoveCode" Width="24" Height="24" Margin="10,10,0,0" Click="btnRemoveCode_Click">
+                                    <Button.ToolTip>
+                                        <TextBlock Text="Remove selected code line"/>
+                                    </Button.ToolTip>
+                                    <Viewbox Margin="-1" Width="20" Height="20">
+                                        <Canvas Width="24" Height="24">
+                                            <Path Data="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" Fill="Black" />
+                                        </Canvas>
+                                    </Viewbox>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Address" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"/>
+                            <TextBox x:Name="txtAddress" Height="22" MaxLength="8" Margin="5,10,0,0" Width="88"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Value" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,10,0,0"/>
+                            <TextBox x:Name="txtValue" Height="22" MaxLength="8" Margin="19,10,0,0" Width="88">
+                                <TextBox.Style>
+                                    <Style TargetType="{x:Type TextBox}">
+                                        <Setter Property="IsEnabled" Value="True"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsChecked, ElementName=chkRandomUcm}" Value="True">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                            <Button x:Name="btnAddCode" Width="24" Height="24" Margin="38,10,0,0" Click="btnAddCode_Click">
+                                <Button.ToolTip>
+                                    <TextBlock Text="Add Code line"/>
+                                </Button.ToolTip>
+                                <Viewbox  Margin="-1" Width="20" Height="20">
+                                    <Canvas Width="24" Height="24">
+                                        <Path Data="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" Fill="Black" />
+                                    </Canvas>
+                                </Viewbox>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <GroupBox Header="Value Options" Width="210" Height="81">
+                                <StackPanel>
+                                    <CheckBox x:Name="chkRandomUcm" Content="Random UCM (Randomizer)" Margin="10,10,0,0"/>
+                                    <StackPanel x:Name="stackOptionsRandom" Orientation="Horizontal" Margin="10,0,0,0">
+                                        <RadioButton x:Name="rdEnemy" Content="Enemy" Margin="0,0,5,0"/>
+                                        <RadioButton x:Name="rdBoss" Content="Boss" Margin="0,0,5,0"/>
+                                        <RadioButton x:Name="rdAny" Content="Any"/>
+                                        <StackPanel.Style>
+                                            <Style TargetType="{x:Type StackPanel}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsChecked, ElementName=chkRandomUcm}" Value="True">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </StackPanel.Style>
+                                    </StackPanel>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btnSaveTrigger" Content="Save Trigger" Width="100" Click="btnSaveTrigger_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" Width="50" Click="btnCancel_Click" Margin="10,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
